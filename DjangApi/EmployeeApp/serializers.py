@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework import serializers, generics
 from .models import Departments, Employees
 
 class DepartmentSerializer(serializers.ModelSerializer):
@@ -10,8 +10,8 @@ class DepartmentSerializer(serializers.ModelSerializer):
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employees
-        fields = ('EmployeeId',
-                  'EmployeeName',
-                  'Department',
-                  'DateOfJoining',
-                  'PhotoFileName')
+        fields = '__all__'
+
+class EmployeeImageUploadView(generics.CreateAPIView):
+    queryset = Employees.objects.all()
+    serializer_class = EmployeeSerializer

@@ -1,1 +1,20 @@
-<p>add-edit-emp works!</p>
+    <div class="mb-3">
+        <label for="exampleInputtext1" class="form-label">Employee Name</label>
+        <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" [(ngModel)]="EmployeeName">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputtext1" class="form-label">Department</label>
+        <select class="form-select" aria-label="Default select example"  [(ngModel)]="Department" >
+            <option *ngFor="let dataItem of DepartmentList" value="{{dataItem.DepartmentName}}">{{dataItem.DepartmentName}}</option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputtext1" class="form-label">Date of Joining</label>
+        <input type="date" class="form-control" [(ngModel)]="DateOfJoining">
+    </div>
+
+          
+      <button class="btn btn-success" (click)="addEmployee()" *ngIf="emp.EmployeeId==0">Cadastrar</button>
+      <button class="btn btn-success" (click)="updateEmployee()" *ngIf="emp.EmployeeId!=0">Atualizar</button>
+  
+  

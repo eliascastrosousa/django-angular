@@ -9,6 +9,7 @@ class Departments(models.Model):
 class Employees(models.Model):
     EmployeeId = models.AutoField(primary_key=True)
     EmployeeName = models.CharField(max_length=255)
-    Department = models.CharField(max_length=255)
-    DateOfJoining = models.DateField()
-    PhotoFileName = models.CharField(max_length=100)
+    Department = models.CharField(max_length=255, blank=True)
+    DateOfJoining = models.DateField(blank=True)
+    PhotoFileName = models.CharField(max_length=100, blank=True)
+    

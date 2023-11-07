@@ -5,6 +5,11 @@ from django.http.response import JsonResponse
 from .models import Departments, Employees
 from .serializers import DepartmentSerializer, EmployeeSerializer
 from django.core.files.storage import default_storage
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
+from .models import Employees
 
 @csrf_exempt
 def departmentApi(request, id=0):
@@ -31,6 +36,7 @@ def departmentApi(request, id=0):
         return JsonResponse('Failed to Update.', safe=False)
     
     elif request.method=='DELETE':
+        
         department = Departments.objects.get(DepartmentId=id)
         department.delete()
         return JsonResponse('Delete Successfully!!', safe=False)
@@ -67,6 +73,6 @@ def employeeApi(request, id=0):
         
 @csrf_exempt
 def SaveFile(request):
-    file=request.FILES('uploadedFile')
+    file=request.FILES('image')
     file_name = default_storage.save(file.name, file) 
     return JsonResponse(file_name, safe=False)

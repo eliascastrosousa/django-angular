@@ -1,1 +1,8 @@
-<p>add-edit-dep works!</p>
+    <div class="mb-3">
+      <label for="exampleInputText" class="form-label">Nome do departamento</label>
+      <input type="text" class="form-control" aria-describedby="TextHelp" [(ngModel)]="DepartmentName">
+    </div>
+        
+    <button class="btn btn-success" (click)="addDepartment()" *ngIf="dep.DepartmentId==0">Cadastrar</button>
+    <button class="btn btn-success" (click)="updateDepartment()" *ngIf="dep.DepartmentId!=0">Atualizar</button>
+

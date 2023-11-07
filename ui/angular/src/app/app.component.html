@@ -1,1 +1,23 @@
-<h1>Hello World</h1>
+<div class="container text-center mt-3 mb-3">
+    <div class="py-8">
+        <div>
+            <h3 class="text-3xl font-semibold leading-tight">Angular + Django Web API</h3>
+            <h3 class="text-2xl font-semibold leading-tight">Employee Management Portal</h3>
+        </div>
+    </div>
+    <nav class="navbar p-2 text-primary-emphasis bg-dark-subtle border border-dark-subtle rounded-2">
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class=" btn btn-dark mx-2 " aria-current="page" href="#" routerLink="department">Departments</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-dark" href="#" routerLink="employee">Employees</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+<router-outlet></router-outlet>
